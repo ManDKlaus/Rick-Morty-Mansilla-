@@ -1,0 +1,29 @@
+.Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../img/Rick-Morty.png");
+    background-size: cover;
+  }
+
+#form {
+    display: flex;
+    margin-bottom: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    align-items: center
+  }
+
+.dangers {
+  margin-left: 15px;
+}
+
+#danger {
+  margin-right: 15px;
+}
+
+#ingresar {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}

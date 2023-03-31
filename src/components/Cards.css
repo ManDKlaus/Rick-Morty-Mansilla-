@@ -1,0 +1,19 @@
+.cards_container{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   padding: 70px 15px;
+}
+
+/* no me muestra las imagenes poniendolas como etiquetas
+asiq uso esta alternativa */
+#img {
+   background-image: url("../../img/pointy-finger.gif");
+   height: 250px;
+   width: 500px;
+   transform: rotate(250deg) scale(.15);
+   position: absolute;
+   left: 15%;
+   top: -40px;
+   display: block;
+}
