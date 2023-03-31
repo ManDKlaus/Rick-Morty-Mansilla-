@@ -2,11 +2,11 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   padding: 70px 15px;
+   padding: 100px 15px;
 }
 
-/* no me muestra las imagenes poniendolas como etiquetas
-asiq uso esta alternativa */
+   /* no me muestra las imagenes poniendolas como etiquetas
+   asiq uso esta alternativa */
 #img {
    background-image: url("../../img/pointy-finger.gif");
    height: 250px;
@@ -17,3 +17,9 @@ asiq uso esta alternativa */
    top: -40px;
    display: block;
 }
+
+
+
+
+
+

@@ -34,7 +34,7 @@ export default function Card(props) {
 
    return (
       <div className="card" >
-         <Link id="name" to={`/detail/${id}`}>
+         <Link id="name" to={`/detail/${id}`} >
             <h2>N°{id}</h2>
             <h2>{name}</h2>
             <img src={image} alt={name} />

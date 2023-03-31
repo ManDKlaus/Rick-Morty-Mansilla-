@@ -1,18 +1,123 @@
-.Nav {
-  width: 100%;
-  height: 65px;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
+@media screen and (min-width: 1033px) {
+
+  .Nav {
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  #Nav1 {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+  }
+
+  #logo button {
+    background-image: url("../../img/hola3.png");
+    background-size: cover;
+    width: 120px;
+    height: 100%;
+  }
+  #logo {
+    display:flex;
+  }
+
+  #Nav2{
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 30px;
+    margin-top: 65px;
+    width: 100%;
+  }
+
+  #Nav2 select{
+    margin: 5px 15px 5px 5px;
+    border-radius: 4px;
+  }
+
+  #Nav2 button{
+    padding: 7px 15px;
+  }
+
+  .oculto {
+    display: none;
+  }
+
 }
 
-#logo button {
-  background-image: url("../../img/hola3.png");
-  background-size: cover;
-  width: 120px;
-  height: 100%;
-}
-#logo {
-  display:flex;
+/* <------------!------------> */
+@media screen and (max-width: 1033px) {
+
+  .Nav {
+    width: 100%;
+    height: 65px;
+    top:0;
+    position: fixed;
+    display:flex;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  #Nav1 {
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #logo button {
+    background-image: url("../../img/hola3.png");
+    background-size: cover;
+    width: 120px;
+    height: 60px;
+  }
+  #logo {
+    display:block;
+  }
+
+  #Nav2{
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 30px;
+    margin-top: 65px;
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #Nav2 select{
+    margin: 5px 5px 5px 5px;
+    border-radius: 4px;
+  }
+
+  .botNav, .botFav, #botNav, #Nav2 button{
+    display: none;
+    position:fixed;
+    margin: 0;
+    padding: 0;
+  }
+
+  #search{
+    display:flex;
+  }
+
+  #search .botNav {
+    display: block;
+    position: inherit;
+  }
+
+  .oculto {
+    display: flex;
+    margin:5px
+  }
+
+  #Nav2 .oculto {
+    display: flex;
+    position:inherit;
+    padding: 0 5px;
+  }
+
 }

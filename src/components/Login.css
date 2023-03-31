@@ -1,29 +1,75 @@
-.Login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("../../img/Rick-Morty.png");
-    background-size: cover;
+@media screen and (min-width: 1033px) {
+
+  .Login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("../../img/Rick-Morty.png");
+      background-size: cover;
+      background-position: center center;
+    }
+
+  #form {
+      display: flex;
+      margin-bottom: 100px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      align-items: center
+    }
+
+  .dangers {
+    margin-left: 15px;
   }
 
-#form {
-    display: flex;
-    margin-bottom: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
-    align-items: center
+  #danger {
+    margin-right: 15px;
   }
 
-.dangers {
-  margin-left: 15px;
+  #ingresar {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
 }
 
-#danger {
-  margin-right: 15px;
-}
 
-#ingresar {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+
+
+
+/* <------------!------------> */
+@media screen and (max-width: 1033px) {
+
+  .Login {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url("../../img/Rick-Morty.png");
+      background-size: cover;
+      background-position: right center;
+    }
+
+  #form {
+      display: flex;
+      margin-bottom: 100px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      align-items: center
+    }
+
+  .dangers {
+    margin-left: 15px;
+  }
+
+  #danger {
+    margin-right: 15px;
+  }
+
+  #ingresar {
+    padding-right: 20px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
 }

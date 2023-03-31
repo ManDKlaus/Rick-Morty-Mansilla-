@@ -1,51 +1,123 @@
-.App {
-   background-attachment: fixed;
-   background-image: url("../img/1366_2000.jpeg");
-   background-size: cover;
-   background-position: center center;
-   color:#ffffff;
-   text-align: center;
-   margin: 0;
-   padding: 0;
-   min-height: 100vh;
+@media screen and (min-width: 1033px) {
+
+   .App {
+      background-attachment: fixed;
+      background-image: url("../img/1366_2000.jpeg");
+      background-size: cover;
+      background-position: center center;
+      color:#ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+   }
+
+   button {
+      background: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: bold;
+      border:none;
+      padding: 25px;
+   }
+   
+   button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+   }
+   
+   button:active {
+      background-color: #52a719;
+   }
+   
+   input {
+      width: 200px;
+      height: 30px;
+      border-radius: 6px;
+      margin: 15px 0 15px 15px;
+   }
+
+   input::placeholder {
+      opacity: 0.3;
+      padding-left: 5px;
+   }
+
+   a {
+      text-decoration:none;
+   }
+
+   h2 {
+      display: flex;
+      height: 35px;
+      padding: 0 20px;
+      color:white;align-items: center;
+      justify-content: center;
+   }
+
 }
 
-button {
-   background: none;
-   color: #ffffff;
-   text-transform: uppercase;
-   font-weight: bold;
-   border:none;
-   padding: 25px;
-}
- 
-button:hover {
-   background-color: rgba(255, 255, 255, 0.1);
-}
- 
-button:active {
-   background-color: #52a719;
-}
- 
-input {
-   width: 200px;
-   height: 30px;
-   border-radius: 6px;
-   margin: 15px 0 15px 15px;
-}
 
-input::placeholder {
-    opacity: 0.3;
-}
 
-a {
-   text-decoration:none;
-}
 
-h2 {
-   display: flex;
-   height: 35px;
-   padding: 0 20px;
-   color:white;align-items: center;
-   justify-content: center;
+
+
+
+
+
+
+
+/* <------------!------------> */
+@media screen and (max-width: 1033px) {
+
+   .App {
+      background-attachment: fixed;
+      background-image: url("../img/1366_2000.jpeg");
+      background-size: cover;
+      background-position: center center;
+      color:#ffffff;
+      text-align: center;
+      margin: 0;
+      padding-top: 15px;
+      min-height: 100vh;
+   }
+
+   button {
+      background: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: bold;
+      border:none;
+   }
+   
+   button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+   }
+   
+   button:active {
+      background-color: #52a719;
+   }
+   
+   input {
+      width: 200px;
+      height: 30px;
+      border-radius: 6px;
+      margin: 15px 0 15px 15px;
+   }
+
+   input::placeholder {
+      opacity: 0.3;
+      padding-left: 5px;
+   }
+
+   a {
+      text-decoration:none;
+   }
+
+   h2 {
+      display: flex;
+      height: 35px;
+      padding: 0 20px;
+      color:white;align-items: center;
+      justify-content: center;
+   }
+
 }
