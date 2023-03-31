@@ -3,7 +3,7 @@
   .Login {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       height: 100vh;
       background-image: url("../../img/Rick-Morty.png");
       background-size: cover;
@@ -43,7 +43,7 @@
   .Login {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       height: 100vh;
       background-image: url("../../img/Rick-Morty.png");
       background-size: cover;
