@@ -1,0 +1,17 @@
+.expositionCards,
+.expositionLocations {
+   margin: 0;
+   margin-top: 65px;
+   padding: 0;
+   width: 100%;
+   display: flex;
+   align-items: center;
+}
+
+#container-list {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

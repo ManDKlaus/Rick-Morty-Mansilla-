@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import "./Detail.css";
-import {useParams} from "react-router-dom";
 import axios from "axios";
 
-export default function Detail() {
+export default function Detail({ id }) {
 
-  const {id} = useParams();
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
@@ -20,17 +18,15 @@ export default function Detail() {
   }, [id]);
 
   return (
-    <div className='cards_container'>
-      <div id="detalle">
+      <div>
           <img src={character.image} alt={character.name} />
           <div>
             <h1>{character.name}</h1>
             <h2>Estado: {character.status}</h2>
             <h2>Especie: {character.species}</h2>
             <h2>Género: {character.gender}</h2>
-            <h2>Originario de: {character.origin?.name}</h2>
+            <h2>Origen: {character.origin?.name}</h2>
           </div>
       </div>
-    </div>
   );
 };

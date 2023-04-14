@@ -16,7 +16,7 @@ export default function About() {
           <p>...pero ya que estás de chismoso. Necesito tu ayuda.</p>
           <p>¿Me ayudas a devolverle los recuerdos a Rick?</p>
           <button id="si" onClick={cambia}>SI</button>
-          <p id="oculto">En la barra de navegación puedes ingresar números del 1 al 826 y agregar personajes en su memoria. También puedes jugar un poco y agregarlos a favoritos!!</p>
+          <p id="oculto">En la barra de navegación puedes ingresar números del 1 al 826 y agregar personajes en su memoria. También puedes jugar un poco y agregarlos a ¡¡FAVORITOS!!</p>
     </div>
   );
 };

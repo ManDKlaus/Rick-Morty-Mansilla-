@@ -1,0 +1,108 @@
+#Nav2{
+    margin:15px;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 97%;
+    width: 300px;
+    min-width: 300px;
+    border-radius: 12px;
+    gap: 40px;
+}
+
+#Nav2 #caja {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 40px;
+}
+
+#Nav2 #filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+ 
+  #Nav2 select{
+    margin: 0;
+    border-radius: 4px;
+  }
+ 
+  #Nav2 button{
+    width: 100%;
+    padding: 15px;
+  }
+
+  #switches {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .switch {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .switch div {
+    width: 100%;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .switch input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    margin: 0;
+  }
+
+  .switch label {
+    cursor: pointer;
+    padding: 4px;
+    width: 25px;
+    height: 10px;
+    background-color: grey;
+    display: block;
+    border-radius: 50em;
+    position: relative;
+    transition: .4s;
+    transition: background-color .4s; /* Agrega esta línea */
+  }
+
+  .switch label::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50em;
+    transition: .4s;
+    margin: 0;
+    padding: 0;
+    left: 4px;
+  }/* 
+
+  .switch input:active + label {
+    background-color: red;
+  } */
+
+  .switch input:checked + label {
+    background-color: yellow;
+  }
+
+  .switch input:checked + label::after {
+    transform: translateX(calc(100% + 5px));
+  }

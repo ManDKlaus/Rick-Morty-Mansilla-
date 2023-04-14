@@ -1,4 +1,13 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET } from "./actiontypes";
+import { 
+    ADD_FAV, 
+    REMOVE_FAV, 
+    FILTER, 
+    ORDER, 
+    RESET, 
+    ADD_CHAR, 
+    REMOVE_CHAR, 
+    ADD_REMOVED, 
+} from "./actiontypes";
 
 
 export function addFav (character) {
@@ -32,5 +41,26 @@ export function orderCards (order) {
 export function reset () {
     return {
         type: RESET,
+    };
+};
+
+export function addChar (id) {
+    return {
+        type: ADD_CHAR,
+        payload: id,
+    };
+};
+
+export function removeChar (id) {
+    return {
+        type: REMOVE_CHAR,
+        payload: id,
+    };
+};
+
+export function addRemoved (id) {
+    return {
+        type: ADD_REMOVED,
+        payload: id,
     };
 };

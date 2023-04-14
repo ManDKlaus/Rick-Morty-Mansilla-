@@ -1,6 +1,6 @@
 @media screen and (min-width: 1033px) {
 
-  .Nav {
+  #Nav {
     width: 100%;
     height: 65px;
     position: fixed;
@@ -9,38 +9,22 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  #Nav1 {
-    width: 100%;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-  }
-
   #logo button {
     background-image: url("../../img/hola3.png");
     background-size: cover;
     width: 120px;
     height: 100%;
   }
+  
   #logo {
     display:flex;
   }
 
-  #Nav2{
-    background-color: rgba(0, 0, 0, 0.4);
-    height: 30px;
-    margin-top: 65px;
-    width: 100%;
+  #Nav a:nth-child(2) button {
+    box-shadow: 0 0 10px rgb(0, 255, 115);
+    text-shadow: 0 0 20px rgb(0, 255, 115);
   }
 
-  #Nav2 select{
-    margin: 5px 15px 5px 5px;
-    border-radius: 4px;
-  }
-
-  #Nav2 button{
-    padding: 7px 15px;
-  }
 
   .oculto {
     display: none;
@@ -62,20 +46,28 @@
 
   #Nav1 {
     width: 100%;
+    height: 65px;
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  #Nav1 Link {
+    width: 100%;
+    height: 100%;
+  }
+
   #logo button {
     background-image: url("../../img/hola3.png");
     background-size: cover;
     width: 120px;
-    height: 60px;
+    height: 65px;
   }
   #logo {
-    display:block;
+    display:flex;
+    padding: 0;
+    margin: 0;
   }
 
   #Nav2{
@@ -102,22 +94,22 @@
 
   #search{
     display:flex;
-  }
-
-  #search .botNav {
-    display: block;
-    position: inherit;
+    padding: 0 5px;
+    align-items: center;
   }
 
   .oculto {
     display: flex;
-    margin:5px
+    justify-content: center;
+    padding: 24px;
+    width: 65px;
   }
 
   #Nav2 .oculto {
     display: flex;
     position:inherit;
-    padding: 0 5px;
+    padding: 6px 15px;
+    width: 20px;
   }
 
 }

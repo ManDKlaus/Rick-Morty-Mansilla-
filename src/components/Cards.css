@@ -1,24 +1,85 @@
-.cards_container{
+.titulos  {
+   color:black;
+   margin: 20px 0;
+}
+
+.container{
+   user-select: none;
+}
+
+/*   -------------------------- Mosaico    */
+
+.mosaico {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   padding: 100px 15px;
+   gap: 10px;
+   padding: 40px 15px;
 }
 
-   /* no me muestra las imagenes poniendolas como etiquetas
-   asiq uso esta alternativa */
-#img {
-   background-image: url("../../img/pointy-finger.gif");
-   height: 250px;
-   width: 500px;
-   transform: rotate(250deg) scale(.15);
+.mosaico #izq, .mosaico #der {
+   display: none;
+}
+
+
+/*   -------------------------- Carrusel    */
+
+.carrusel  {
+   top: 0;
+   left: 0;
+   width: 95%;
+   height: 360px;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   align-items: center;
+   overflow: hidden;
+   position: relative;
+   font-size: 12px;
+}
+
+.carrusel::before {
    position: absolute;
-   left: 15%;
-   top: -40px;
-   display: block;
+   content: "";
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   pointer-events: none;
+   background: linear-gradient(to right, white, transparent 1%, transparent 99%,white);
 }
 
+.carrusel .irIzq,
+.carrusel .irDer{
+   position: absolute;
+   height: 100%;
+   margin: 0;
+   top: 0;
+}
 
+.carrusel .irIzq {
+   left: 0;
+}
+
+.carrusel .irDer {
+   right: 0;
+}
+
+.carrusel .container{
+   margin: 0;
+   padding: 0;
+   width: auto;
+   height: 360px;
+   overflow: hidden;
+   display: flex;
+   transition: transform 1s ease-in-out;
+   
+   gap: 10px;
+
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
+}
 
 
 

@@ -1,11 +1,17 @@
 @media screen and (min-width: 1033px) {
 
     .About {
+        width: 100%;
+        margin: 0;
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-attachment: fixed;
+        background-image: url("../../img/1366_2000.jpeg");
+        background-size: cover;
+        background-position: center center;
         height: 100vh;
     }
 

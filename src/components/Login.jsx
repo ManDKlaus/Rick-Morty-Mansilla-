@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import {Link} from "react-router-dom";
 import "./Login.css";
 
@@ -85,7 +85,9 @@ export default function Login({login}) {
         {
           Object.keys(errors).length === 0 ? (
             <Link to= "/home">
-              <button id='ingresar' type="submit" >Ingresar</button>
+              <button id='ingresar' type="submit" >
+                <span>Ingresar</span>
+              </button>
             </Link>
           ) : null
         }
