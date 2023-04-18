@@ -15,17 +15,9 @@ export default function Login({login}) {
     email:"",
     password:"",
   });
-  
 
   function validate(inputs){
     const errors={};
-
-    /* if(!inputs.email){                                       // Comento porque 
-      errors.email = "Debe escribir su email secreto";          // no se implementa nunca
-    };                                                          // porq hasta no escribir
-    if(!inputs.password){                                       // mail y contraseña correcta
-      errors.password = "Debe escribir su contraseña secreta";  // no aparece el botón
-    }; */
     if(!reqEmail.test(inputs.email)){
       errors.email = "Ahora escribe tu email secreto";
     };
@@ -86,7 +78,7 @@ export default function Login({login}) {
           Object.keys(errors).length === 0 ? (
             <Link to= "/home">
               <button id='ingresar' type="submit" >
-                <span>Ingresar</span>
+                Ingresar
               </button>
             </Link>
           ) : null

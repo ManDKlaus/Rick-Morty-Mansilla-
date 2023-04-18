@@ -1,26 +1,86 @@
 import { 
-    ADD_FAV, 
+    SEARCH_CHARACTER,
+    ADD_FAV,
+    ACT_CHAR, 
     REMOVE_FAV, 
     FILTER, 
     ORDER, 
     RESET, 
-    ADD_CHAR, 
-    REMOVE_CHAR, 
-    ADD_REMOVED, 
+    ADD_CHAR,
+    NEXT_PAGE,
+    PREV_PAGE,
+    GET_FAV,
 } from "./actiontypes";
 
+import axios from "axios";
 
-export function addFav (character) {
+export function addChar (chars) {
     return {
-        type: ADD_FAV,
-        payload: character,
+        type: ADD_CHAR,
+        payload: chars,
+    };
+};
+
+export function actChar (chars) {
+    return {
+        type: ACT_CHAR,
+        payload: chars,
+    };
+}
+
+export function searchCharacter(character) {
+  return {
+    type: SEARCH_CHARACTER,
+    payload: character,
+  };
+}
+
+export function getFav() {
+    return async function (dispatch) {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:3001/rickandmorty/favorites/all`
+        );
+        return dispatch({
+          type: GET_FAV,
+          payload: data,
+        });
+      } catch (error) {
+        console.log("getFav not found", error);
+      }
+    };
+  }
+
+export function addFav (props) {
+    return async function (dispatch) {
+        try {
+            const {data} = await axios.post(
+                `http://localhost:3001/rickandmorty/favorites`,
+                props
+            );
+            return dispatch({
+                type: ADD_FAV,
+                payload: data,
+            });
+        } catch (error) {
+            console.log("addFav not found", error);
+        };
     };
 };
 
 export function removeFav (id) {
-    return {
-        type: REMOVE_FAV,
-        payload: id,
+    return async function (dispatch) {
+        try {
+            const {data} = await axios.delete(
+                `http://localhost:3001/rickandmorty/favorites/${id}`
+            );
+            return dispatch({
+                type: REMOVE_FAV,
+                payload: data, // myFavorites
+            });
+        } catch (error) {
+            console.log("removeFav not found", error);
+        };
     };
 };
 
@@ -44,23 +104,17 @@ export function reset () {
     };
 };
 
-export function addChar (id) {
+export function prevPage(cOf) {
     return {
-        type: ADD_CHAR,
-        payload: id,
+      type: PREV_PAGE,
+      payload: cOf,
     };
-};
-
-export function removeChar (id) {
+  }
+  
+  export function nextPage(cOf) {
     return {
-        type: REMOVE_CHAR,
-        payload: id,
+      type: NEXT_PAGE,
+      payload: cOf,
     };
-};
-
-export function addRemoved (id) {
-    return {
-        type: ADD_REMOVED,
-        payload: id,
-    };
-};
+  }
+  

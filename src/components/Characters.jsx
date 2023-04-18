@@ -1,31 +1,35 @@
-import {useState} from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import "./Characters.css";
 import NavSet from './NavSet.jsx';
 import Cards from './Cards.jsx';
-import { useSelector } from 'react-redux';
 
 export default function Characters() {
 
-   const { characters } = useSelector(s => s);
-   const { myFavorites } = useSelector(s => s);
-
-    // ------------- Ver Mosaico Char / Mosaico Fav / Ambas Carrusel
+// ------------- Ver Mosaico Char / Mosaico Fav / Ambas Carrusel
     
-       const [isCarousel, setIsCarousel] = useState(false);
+    const [isCarousel, setIsCarousel] = useState(false);
+
+// ----------------------------- Traigo Listas
+          
+    const { editChar } = useSelector(s => s);
+    const { editFav } = useSelector(s => s);
 
   return (
     <div className='expositionCards' >
         <NavSet setIsCarousel={setIsCarousel} />
         <div id="container-list">
-            <h1 className='titulos' >Personajes Agregados <span>({characters.length})</span></h1>
+            <h1 className='titulos' >Personajes</h1>
             <Cards 
                 className={isCarousel ? 'mosaico' : 'carrusel'}
-                title="Personajes Agregados"
+                title="Personajes"
+                list={editChar}
             />
-            <h1 className='titulos' >Favoritos <span>({myFavorites.length})</span></h1>
+            <h1 className='titulos' >Favoritos</h1>
             <Cards 
                 className={isCarousel ? 'mosaico' : 'carrusel'}
                 title="Favoritos"
+                list={editFav}
             />
         </div>
     </div>

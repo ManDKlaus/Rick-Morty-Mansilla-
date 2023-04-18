@@ -5,17 +5,16 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-attachment: fixed;
-        background-image: url("../../img/1366_2000.jpeg");
+        background-image: url("../../img/1366_2001.jpg");
         background-size: cover;
         background-position: center center;
         height: 100vh;
     }
 
     #h2 {
+        margin-top: 100px;
         font-size: 80px;
         color: #52a719;
         width: 850px;
@@ -24,10 +23,12 @@
 
     #oculto {
         display: none;
+        margin-top: 30px;
     }
 
     .About p {
         width: 30%;
+        font-size: 18px;
     }
 
 }

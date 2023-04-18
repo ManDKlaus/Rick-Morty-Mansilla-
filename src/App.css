@@ -10,6 +10,11 @@
       min-height: 100vh;
    }
 
+   * {
+      scroll-behavior: smooth;
+      transition: all .4s;
+   }
+
    button {
       border: none;
       outline: none;
@@ -22,16 +27,12 @@
       cursor: pointer;
       letter-spacing: 1px;
       position:relative;
-      box-shadow: 0 2px rgba(255, 255, 255, 0.1);
    }
 
-   button span {
-      position: relative;
-      z-index: 2;
-      font-family: inherit;
-   }
-
-   button::after{
+   #Nav2 button::after,
+   #Nav button::after,
+   .carrusel .irIzq::after,
+   .carrusel .irDer::after {
       content: "";
       position:absolute;
       left: 0;
@@ -45,11 +46,17 @@
       transition: all .5s ease-in-out;
    }
 
-   button:hover::after {
+   #Nav2 button:hover::after, 
+   #Nav button:hover::after,
+   .carrusel .irIzq:hover::after,
+   .carrusel .irDer:hover::after {
       transform: skew(40deg) translate(.5%)
    }
    
-   button:active {
+   #Nav2 button:active,
+   #Nav button:active,
+   .carrusel .irIzq:active,
+   .carrusel .irDer:active {
       background-color: #52a719;
    }
    

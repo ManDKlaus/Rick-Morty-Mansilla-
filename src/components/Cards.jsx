@@ -1,79 +1,78 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from './Card.jsx';
 import "./Cards.css";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Paginate from "./Paginate.jsx";
+import axios from 'axios';
+import { addChar, getFav } from "../redux/actions.js"
 
-export default function Cards( {className, title} ) {
+export default function Cards( {className, title, list} ) {
 
-// ----------------------------- Traigo Listas
+// --------------------- Defino la cantidad de cartas que se muestran por página
    
-   const { characters } = useSelector(s => s);
-   const { myFavorites } = useSelector(s => s);
+      const { numPageChar, favorites, editFav } = useSelector((state) => state);
+   
+      let cantPages = 42;
 
 // --------------------- Defino que Lista se muestra
-
-   var list = [];
-   var boolean = false;
-   var idbttn = "";
-   switch (title) {
-      case "Favoritos":
-         list = myFavorites;
-         idbttn = "Fav"
-         boolean = true;
-         break;
-      case "Personajes Agregados":
-         list = characters;
-         idbttn = "Char"
-         break;   
-      default:
-         list = characters;
-         break;
+   
+   var idbttn = "Char";
+   if ( title === "Favoritos") {
+      cantPages = Math.ceil(favorites.length / 20);
+      idbttn = "Fav";
    }
+
+   // -------------------------------- Traigo todos los personajes
+
+   useEffect(()=>{
+      dispatch(getFav());
+   }, []);
+
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      axios
+      .get(`http://localhost:3001/rickandmorty/character/all?page=${numPageChar}`)
+      .then((results) => {
+         dispatch(addChar(results.data));
+      });
+   }, [numPageChar, editFav]);
+
+   
 
 // ------------------------------ Carrusel (mover)
 
    //Botón Izquierdo
-   function movIzq (e) {
-      const carrusel = document.getElementsByClassName("container")
-      if(e.target.id === "izqFav") {
-         carrusel[1].scrollLeft -= 190
-      } else {
-      carrusel[0].scrollLeft -= 190
-      }
+   function moverCarrusel(e, cantidad) {
+      const carrusel = document.getElementsByClassName("container");
+      const index = e.target.id === "izq"+idbttn || e.target.id === "der"+idbttn ? 1 : 0;
+      carrusel[index].scrollLeft += cantidad;
    }
-   //Botón Derecho
-   function movDer (e) {
-      const carrusel = document.getElementsByClassName("container")
-      if(e.target.id === "derFav") {
-         carrusel[1].scrollLeft += 190
-      } else {
-      carrusel[0].scrollLeft += 190
-      }
+   
+   function movIzq(e) {
+      moverCarrusel(e, -190);
    }
-
-// ------------------------ Creo estado para Favoritos
-
-   //estado local para pasar por prop a cada card si es fav o no.
-   //La función que lo setea está en Card.
-   const [isFav, setIsFav] = useState(false);
+   
+   function movDer(e) {
+      moverCarrusel(e, 190);
+   }
 
    return (
-            <div className={className} >
-               <button onClick={movIzq} className="irIzq" id={"izq"+idbttn} >IZQ</button>
-               <div className='container' >
-               {list && list.map((e, id)=>{
-                  return (
-                     <Card
-                        key={id}
-                        id={id}
-                        e={e}
-                        isFav={boolean}
-                        setIsFav={setIsFav}
-                     />
-                  )
-               })}
-               </div>
-               <button onClick={movDer} className="irDer" id={"der"+idbttn} >DER</button>
+      <div className={className} >
+         <button onClick={movIzq} className="irIzq" id={"izq"+idbttn} >IZQ</button>
+         <div className='container' >
+         {list && list.map((e, id)=>{
+            return (
+               <Card
+                  key={id}
+                  id={e.id}
+                  e={e}
+               />
+            )
+         })}
          </div>
+         <button onClick={movDer} className="irDer" id={"der"+idbttn} >DER</button>
+         <Paginate cantPages={cantPages} title={title} />
+      </div>
    );
 };

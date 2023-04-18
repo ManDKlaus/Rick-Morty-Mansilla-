@@ -11,10 +11,10 @@ export default function NavSet() {
 
 // -------------------------------- Personajes
     
+    const { editChar } = useSelector(s => s);
     const { characters } = useSelector(s => s);
-    const { allCharacters } = useSelector(s => s);
-    const { myFavorites } = useSelector(s => s);
-    const { allFavorites } = useSelector(s => s);
+    const { editFav } = useSelector(s => s);
+    const { favorites } = useSelector(s => s);
 
 // --------------- Mosaico Char / Mosaico Fav / Ambas Carrusel
 
@@ -26,9 +26,9 @@ export default function NavSet() {
        /*  const container = document.getElementsByClassName("container")
         const h1Anterior0 = container[0].previousElementSibling;
         if(h1Anterior0.value = "Personajes Agregados") {
-            container[0].style.width = `calc(180px * ${characters.length})`
+            container[0].style.width = `calc(180px * ${editChar.length})`
         } else {            
-            container[1].style.width = `calc(180px * ${myFavorites.length})`
+            container[1].style.width = `calc(180px * ${editFav.length})`
         } */
     }
 
@@ -67,7 +67,7 @@ export default function NavSet() {
                 <SearchBar />
                 <button 
                     id="btnSelect" 
-                    onClick={ handleViewChange } >
+                    onClick={ () =>handleViewChange } >
                         Cambiar vista
                 </button>
                 <div id="filtros" >
@@ -86,7 +86,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="Alive" 
                                     id="switch1" />
-                                <label for="switch1" ></label>
+                                <label htmlFor="switch1" ></label>
                             </div>
                             <div>
                                 <p>Muerto</p>
@@ -95,7 +95,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="Dead" 
                                     id="switch2" />
-                                <label for="switch2" ></label>
+                                <label htmlFor="switch2" ></label>
                             </div>
                             <div>
                                 <p>Desconocido</p>
@@ -104,7 +104,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="unknown" 
                                     id="switch3" />
-                                <label for="switch3" ></label>
+                                <label htmlFor="switch3" ></label>
                             </div>
                         </div>
                         <h2>Género</h2>
@@ -116,7 +116,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="Male" 
                                     id="switch4" />
-                                <label for="switch4" ></label>
+                                <label htmlFor="switch4" ></label>
                             </div>
                             <div>
                                 <p>Femenino</p>
@@ -125,7 +125,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="Female" 
                                     id="switch5" />
-                                <label for="switch5" ></label>
+                                <label htmlFor="switch5" ></label>
                             </div>
                             <div>
                                 <p>Sin genero</p>
@@ -134,7 +134,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="Genderless" 
                                     id="switch6" />
-                                <label for="switch6" ></label>
+                                <label htmlFor="switch6" ></label>
                             </div>
                             <div>
                                 <p>Desconocido</p>
@@ -143,7 +143,7 @@ export default function NavSet() {
                                     type="checkbox" 
                                     value="unknown" 
                                     id="switch7" />
-                                <label for="switch7" ></label>
+                                <label htmlFor="switch7" ></label>
                             </div>
                         </div>
                         <button 

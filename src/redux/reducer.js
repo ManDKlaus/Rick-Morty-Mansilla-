@@ -1,45 +1,98 @@
 import { 
+    SEARCH_CHARACTER,
     ADD_FAV, 
+    ACT_CHAR,
     REMOVE_FAV, 
     FILTER, 
     ORDER, 
     RESET, 
-    ADD_CHAR, 
-    REMOVE_CHAR, 
-    ADD_REMOVED 
+    ADD_CHAR,
+    NEXT_PAGE,
+    PREV_PAGE,
+    HANDLE_NUMBER,
+    GET_FAV,
 } from "./actiontypes";
 
 const initialState = {
-    myFavorites:[],
-    allFavorites: [],
+    editFav:[],
+    favorites: [],
+    editChar: [],
     characters: [],
-    allCharacters: [],
     removeds: [],
     status: "",
     gender: "",
+    location: [],
+    numPageChar: 1,
+    numPageFav: 1,
 };
 
 export default function rootReducer (state=initialState,{type, payload}) {
     switch (type){
-        case ADD_FAV:
+        case ADD_CHAR:
+            if (Array.isArray(payload)) {
+                const favoriteIds = state.editFav.map((fav) => fav.id); // obtienes un array con los ids de los personajes favoritos
+                const updatedChars = payload.map((char) => {
+                  if (favoriteIds.includes(char.id)) {
+                    return { ...char, isFav: true }; // actualizas la propiedad 'isFav' del personaje
+                  }
+                  return char;
+                });
+                return {
+                    ...state,
+                    editChar: updatedChars,
+                    characters: updatedChars,
+                };
+            }
+        case ACT_CHAR:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites, payload],
-                allFavorites: [...state.allFavorites, payload],
+                editChar: state.editChar.map((char) => {
+                    if (char.id === payload.id) {
+                        return {
+                            ...char,
+                            isFav: payload.isFav,
+                        };
+                    }
+                    return char;
+                }),
+            };
+        case SEARCH_CHARACTER:
+            return {
+                ...state,
+                editChar: [...payload],
+            };
+        case GET_FAV:
+            const startIndex = (state.numPageFav - 1) * 20;
+            const endIndex = state.numPageFav * 20;
+            const slicedPayload = payload.slice(startIndex, endIndex);
+            return {
+              ...state,
+              editFav: slicedPayload,
+              favorites: payload,
+            };
+        case ADD_FAV:
+            if (state.editFav.length < 20) {
+                return {
+                    ...state,
+                    editFav: payload,
+                    favorites: payload,
+                };
+            }
+            return {
+                ...state,
+                favorites: payload,
             };
         case REMOVE_FAV:
-            const returnChar1 = state.myFavorites.filter((ch)=> ch.id !== payload);
-            const returnChar2 = state.allFavorites.filter((ch)=> ch.id !== payload);
             return {
                 ...state,
-                myFavorites: returnChar1,
-                allFavorites: returnChar2,
+                editFav: payload,
+                favorites: payload,
             };
         case FILTER:
             const { id, value, checked } = payload;
             const key = id === "switch1" || id === "switch2" || id === "switch3" ? "status" : "gender";
             state[key] = checked ? value : "";
-            const filterChar = state.allCharacters.filter((ch)=> {
+            const filterChar = state.characters.filter((ch)=> {
                 if (state.status && ch.status !== state.status) {
                   return false;
                 }
@@ -48,7 +101,7 @@ export default function rootReducer (state=initialState,{type, payload}) {
                 }
                 return true;
               })
-            const filterFav = state.allFavorites.filter((ch)=> {
+            const filterFav = state.favorites.filter((ch)=> {
                 if (state.status && ch.status !== state.status) {
                   return false;
                 }
@@ -59,11 +112,11 @@ export default function rootReducer (state=initialState,{type, payload}) {
               })
             return {
                 ...state,
-                characters: filterChar,  
-                myFavorites: filterFav,        
+                editChar: filterChar,  
+                editFav: filterFav,        
             };
         case ORDER:
-            const newOrder1 = state.allCharacters.sort((a, b)=>{
+            const newOrder1 = state.characters.sort((a, b)=>{
                 if(a.id > b.id) {
                     return "Ascendente" === payload ? 1 : -1;
                 }
@@ -72,7 +125,7 @@ export default function rootReducer (state=initialState,{type, payload}) {
                 }
                 return 0;
             });
-            const newOrder2 = state.allFavorites.sort((a, b)=>{
+            const newOrder2 = state.favorites.sort((a, b)=>{
                 if(a.id > b.id) {
                     return "Ascendente" === payload ? 1 : -1;
                 }
@@ -83,35 +136,38 @@ export default function rootReducer (state=initialState,{type, payload}) {
             });
             return {
                 ...state,
-                characters: newOrder1,  
-                myFavorites: newOrder2,        
+                editChar: newOrder1,  
+                editFav: newOrder2,        
             };
         case RESET:
             return {
                 ...state,
                 status:"",
                 gender:"",
-                characters: [...state.allCharacters],
-                myFavorites: [...state.allFavorites],        
+                editChar: [...state.characters],
+                editFav: [...state.favorites],        
             };
-        case ADD_CHAR:
+        case NEXT_PAGE:
+            if(payload === "Favoritos") {
+                return {
+                    ...state,
+                    numPageFav: state.numPageFav + 1,
+                };
+            }
             return {
-                ...state,
-                characters: [...state.characters, payload],
-                allCharacters:[...state.allCharacters, payload],     
+            ...state,
+            numPageChar: state.numPageChar + 1,
             };
-        case REMOVE_CHAR:
-            const newCh1 = state.characters.filter((ch)=> ch.id !== payload);
-            const newCh2 = state.allCharacters.filter((ch)=> ch.id !== payload);
+        case PREV_PAGE:
+            if(payload === "Favoritos") {
+                return {
+                    ...state,
+                    numPageFav: state.numPageFav - 1,
+                };
+            }
             return {
-                ...state,
-                characters: newCh1,
-                allCharacters: newCh2,
-            };
-        case ADD_REMOVED:
-            return {
-                ...state,
-                removeds: [...state.removeds, payload],
+            ...state,
+            numPageChar: state.numPageChar - 1,
             };
         default:
             return state;

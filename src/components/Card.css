@@ -4,11 +4,11 @@
       background-color: rgba(0, 0, 0, 0.8);
       margin: 0;
       padding: 0;
-      min-width: 180px;
-      width: 180px;
-      max-width: 360px;
-      height: 360PX;
-      border-radius: 12px;
+      min-width: 150px;
+      width: 150px;
+      max-width: 300px;
+      height: 300PX;
+      border-radius: 10px;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
@@ -33,7 +33,7 @@
    }
 
    .card .contenido:first-child {
-      margin-top: 25px;
+      margin-top: 10px;
    }
 
    h2:not(:nth-of-type(-n+1)) {
@@ -41,7 +41,7 @@
    }
 
    .card #name h2{
-      margin: 10px;
+      margin: auto 10px;
    }
 
    #name:hover{
@@ -50,32 +50,17 @@
 
    .card #name img{
       width: 85%;
-      border-radius: 12px;
-      margin-bottom: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
    }
 
-   .card #bttns {
-      display: flex;
-      width: 100%;
+   .card button {
+      box-shadow: none;
+      position:sticky;
+      width: 20%;
       height: 20%;
-   }
-
-   .card .izq {
-      font-size: 25px;
       margin: 0;
       padding: 0;
-      width: 50%;
-      height: 100%;
-      border-bottom-left-radius: 12px;
-   }
-
-   .card .der {
-      font-size: 27px;
-      margin: 0;
-      padding: 0;
-      width: 50%;
-      height: 100%;
-      border-bottom-right-radius: 12px;
    }
 
    /*   -------------------------- Detalle    */
@@ -84,75 +69,36 @@
       background-color: rgba(0, 0, 0, 0.8);
       margin: 0;
       padding: 0;
-      min-width: 610px;
-      width: 610px;
-      height: 360PX;
-      border-radius: 12px;
+      min-width: 150px;
+      width: 150px;
+      height: 300PX;
+      border-radius: 10px;
       display: flex;
       align-items: center;
    }
 
    .detalle #name {
-      margin: 0;
+      margin: 12px;
       padding: 0;
       width: 100%;
-      height: 100%;
+      height: 92%;
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      
-   user-select: none;
-   }
+      justify-content: space-between;
+      user-select: none;
+   }/* 
+   .detalle #name div h3 {
+      margin-top: 5px;
+   } */
 
-   .detalle #name .contenido {
-     width: 35%;
-     margin: 5px;
-     padding: 0;
-   }
-
-   .detalle #name div h2{
+   .detalle #name div h2 {
       font-size: 14px;
    }
 
-   .detalle #nameCorto {
+   .detalle #nameCorto,
+   .detalle img,
+   .detalle button {
       display: none;
    }
 
-   .detalle img {
-      border-radius: 12px;
-      height: 100%;
-      margin: 15px;
-      margin-left: 0;
-      justify-self: center;
-      align-self: center;
-      scroll-snap-align: start;
-   }
-
-   .detalle #bttns {
-      width: 11%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-   }
-
-   .detalle .izq {
-      font-size: 25px;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 50%;
-      border-top-right-radius: 12px;
-   }
-
-   .detalle .der {
-      font-size: 26px;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 50%;
-      border-bottom-right-radius: 12px;
-   }
    

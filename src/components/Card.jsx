@@ -1,6 +1,6 @@
 import "./Card.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addFav, removeFav, removeChar, addChar, addRemoved } from "../redux/actions";
+import { addFav, removeFav, actChar } from "../redux/actions";
 import { useEffect, useState } from "react";
 
 export default function Card( props ) {
@@ -8,48 +8,27 @@ export default function Card( props ) {
    const { 
       id,
       e,
-      isFav, 
-      setIsFav,
    } = props;
    const dispatch = useDispatch();
-   const {characters} = useSelector((s)=> s);
+   const { editChar, editFav } = useSelector((s)=> s);
 
 // ------------------- Sacar N° de episodio
 
-const separo = e.episode[0].split("/")
-const episodio = separo[separo.length-1]
+   const separo = e.episode && e.episode.split("/")
+   const episodio = Array.isArray(separo) && separo[separo.length-1]
 
 // ------------------- Agregar y Sacar de Favoritos
 
    function handleFavorite () {
-      if(isFav === true){
-         setIsFav(false);
-         dispatch(addChar(e));
+      if(e.isFav === true){
+         e.isFav = false;
          dispatch(removeFav(e.id));
       } else {
-         setIsFav(true);
+         e.isFav = true;
          dispatch(addFav(e));
-         dispatch(removeChar(e.id));
       };
    };
-
-//Asegura estén marcados las card de Favoritos   
-   const {myFavorites} = useSelector((s)=> s);
-   useEffect(() => {
-      myFavorites.forEach((fav) => {
-         if (fav.id === e.id) {
-            setIsFav(true);
-         };
-      });
-   }, [myFavorites]);
-
-// ----------------------- Eliminar Personaje
-
-   function eliminar() {
-      dispatch(addRemoved(e));
-      dispatch(removeChar(e.id));      
-      dispatch(removeFav(e.id));
-   };
+ 
 
 // ---------------------------- ver Card o Detalle
    
@@ -75,15 +54,9 @@ const episodio = separo[separo.length-1]
          const offsetLeft = elem.offsetLeft;          // position
          const parentWidth = parent.offsetWidth;      // medida del container
          const centeredPosition = offsetLeft - (parentWidth - 180) / 2;
-         if(elem.className === "card") {
             parent.scrollLeft = centeredPosition;
-         } else {
-            parent.scrollLeft = centeredPosition + 214.8;
-         }
       },200);
-
    };
-
 
    return (
       <div className={card ? 'detalle' : 'card'} >
@@ -116,9 +89,8 @@ const episodio = separo[separo.length-1]
             </div>
             <img src={e.image} alt={e.name} />
          </div>
-         <div id="bttns">
             {
-               isFav === true ? (
+               e.isFav === true ? (
                   <button
                      cursor="pointer"
                      className="izq"
@@ -134,13 +106,6 @@ const episodio = separo[separo.length-1]
                   </button>
                )
             }
-            <button
-               cursor="pointer"
-               className="der"
-               onClick={ eliminar }>
-                  🗑
-            </button>
-         </div>
       </div>
    );
 };
