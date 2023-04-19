@@ -1,7 +1,6 @@
-
 /*   -------------------------- Card    */
    .card{
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.4);
       margin: 0;
       padding: 0;
       min-width: 150px;
@@ -66,7 +65,7 @@
    /*   -------------------------- Detalle    */
 
    .detalle {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.6);
       margin: 0;
       padding: 0;
       min-width: 150px;

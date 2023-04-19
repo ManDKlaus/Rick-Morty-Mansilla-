@@ -30,7 +30,7 @@ export default function rootReducer (state=initialState,{type, payload}) {
     switch (type){
         case ADD_CHAR:
             if (Array.isArray(payload)) {
-                const favoriteIds = state.editFav.map((fav) => fav.id); // obtienes un array con los ids de los personajes favoritos
+                const favoriteIds = state.favorites.map((fav) => fav.id); // obtienes un array con los ids de los personajes favoritos
                 const updatedChars = payload.map((char) => {
                   if (favoriteIds.includes(char.id)) {
                     return { ...char, isFav: true }; // actualizas la propiedad 'isFav' del personaje

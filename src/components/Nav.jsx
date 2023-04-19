@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 export default function Nav({ logout }) {  
   return (
       <div id="Nav">
+        <div>
         <Link id="logo" to="/home">
           <button />
         </Link>
-        <Link to="/home">
+        <Link to="/about" id="iluminado">
           <button
             className='botNav' >¿Quiénes somos?
           </button>
@@ -17,6 +18,8 @@ export default function Nav({ logout }) {
               ❔
           </button>
         </Link>
+        </div>
+        <div>
         <Link to="/personajes">
           <button
             className='botFav' >
@@ -39,6 +42,8 @@ export default function Nav({ logout }) {
               Episodios
           </button>
         </Link>
+        </div>
+        <div>
         <button
           id='botNav'
           onClick={logout}>
@@ -50,6 +55,7 @@ export default function Nav({ logout }) {
           onClick={logout}>
           ❌
         </button>
+        </div>
     </div>
   );
 };

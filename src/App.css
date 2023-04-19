@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
 @media screen and (min-width: 1033px) {
 
    .App {
@@ -8,6 +10,10 @@
       margin: 0;
       padding: 0;
       min-height: 100vh;
+      background-image: url("../img/1366_2005.jpg");
+      background-size: cover;
+      background-position: center center;
+      font-family: 'Kalam', cursive;
    }
 
    * {
@@ -22,11 +28,13 @@
       color: #ffffff;
       text-transform: uppercase;
       font-weight: bold;
-      padding: 25px;
+      padding: 20px;
+      padding-top: 22px;
       overflow: hidden;
       cursor: pointer;
       letter-spacing: 1px;
       position:relative;
+      font-family: 'Kalam', cursive;
    }
 
    #Nav2 button::after,
@@ -57,7 +65,7 @@
    #Nav button:active,
    .carrusel .irIzq:active,
    .carrusel .irDer:active {
-      background-color: #52a719;
+      background-color: #8d19a7;
    }
    
    select {

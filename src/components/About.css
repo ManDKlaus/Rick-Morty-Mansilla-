@@ -5,30 +5,49 @@
         margin: 0;
         padding: 0;
         display: flex;
-        align-items: center;
-        flex-direction: column;
-        background-image: url("../../img/1366_2001.jpg");
+        background-image: url("../../img/1366_2006.jpg");
         background-size: cover;
         background-position: center center;
+        flex-direction: row-reverse;
         height: 100vh;
     }
 
+    .About div {
+        width: 40%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
     #h2 {
-        margin-top: 100px;
-        font-size: 80px;
+        margin: 0;
+        padding: 0;
+        font-size: 50px;
         color: #52a719;
         width: 850px;
         height: 115px;
     }
 
+    .About button {
+        margin: 20px;
+        padding: 10px 30px 6px 30px;
+        background-color: rgba(165, 255, 206, 0.2);
+        border: 1px solid rgb(119, 5, 117);
+    }
+
     #oculto {
         display: none;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .About p {
-        width: 30%;
         font-size: 18px;
+        padding: 0 5%;
     }
 
 }

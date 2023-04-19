@@ -59,7 +59,7 @@ export default function Cards( {className, title, list} ) {
 
    return (
       <div className={className} >
-         <button onClick={movIzq} className="irIzq" id={"izq"+idbttn} >IZQ</button>
+         <button onClick={movIzq} className="irIzq" id={"izq"+idbttn} >◀</button>
          <div className='container' >
          {list && list.map((e, id)=>{
             return (
@@ -71,7 +71,7 @@ export default function Cards( {className, title, list} ) {
             )
          })}
          </div>
-         <button onClick={movDer} className="irDer" id={"der"+idbttn} >DER</button>
+         <button onClick={movDer} className="irDer" id={"der"+idbttn} >▶</button>
          <Paginate cantPages={cantPages} title={title} />
       </div>
    );

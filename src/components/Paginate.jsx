@@ -19,7 +19,6 @@ export default function Paginate({ cantPages, title }) {
     }
 
     var hasNextPage = false;
-console.log("cantPages",cantPages)
     if (numPage === cantPages) {
         hasNextPage = true;
     }

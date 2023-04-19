@@ -5,8 +5,18 @@
     height: 65px;
     position: fixed;
     display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  #Nav div {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  #Nav button {
+    font-size: 16px;
   }
 
   #logo button {
@@ -17,8 +27,8 @@
   }
 
 
-  #Nav a:nth-child(2) button {
-    box-shadow: inset 0 0 10px rgb(0, 255, 115);
+  #iluminado {
+    box-shadow: -10px 0px 10px -10px rgb(0, 255, 115), 10px 0px 10px -10px rgb(0, 255, 115);
     text-shadow: 0 0 20px rgb(0, 255, 115);
   }
 

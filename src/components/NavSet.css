@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     height: 97%;
     width: 300px;
     min-width: 300px;
@@ -73,9 +73,9 @@
   .switch label {
     cursor: pointer;
     padding: 4px;
-    width: 25px;
-    height: 10px;
-    background-color: grey;
+    width: 20px;
+    height: 8px;
+    background-color: rgb(138, 39, 172);
     display: block;
     border-radius: 50em;
     position: relative;
@@ -86,8 +86,8 @@
   .switch label::after {
     content: "";
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: white;
     border-radius: 50em;
     transition: .4s;
@@ -101,7 +101,7 @@
   } */
 
   .switch input:checked + label {
-    background-color: yellow;
+    background-color: rgb(150, 186, 186);
   }
 
   .switch input:checked + label::after {

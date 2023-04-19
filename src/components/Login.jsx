@@ -60,20 +60,24 @@ export default function Login({login}) {
   return (
     <div className='Login'>
       <form /* onSubmit={handleSubmit} */ id='form'>
-        <input
-          name="email" 
-          value={inputs.email} 
-          onChange={handleChange} 
-          placeholder="Email Secreto"
-        />
-        <p className="dangers">{errors.email}</p>
-        <input 
-          name="password" 
-          value={inputs.password} 
-          onChange={handleChange} 
-          placeholder="Contraseña Secreta"           
-        />
-        <p id="danger" className="dangers">{errors.password}</p>
+        <div className='inputBox' >
+          <label>Email Secreto</label>
+          <input
+            name="email" 
+            value={inputs.email} 
+            onChange={handleChange}
+          />
+          {/* <p className="dangers">{errors.email}</p> */}
+        </div>
+        <div className='inputBox' >
+          <label>Contraseña Secreta</label>
+          <input 
+            name="password" 
+            value={inputs.password} 
+            onChange={handleChange}        
+          />
+          {/* <p id="danger" className="dangers">{errors.password}</p> */}
+        </div>
         {
           Object.keys(errors).length === 0 ? (
             <Link to= "/home">

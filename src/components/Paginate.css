@@ -10,13 +10,14 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    color: black;
 }
 
-.page p, .page button {
+.page p,
+.page button,
+.page h3{
     margin: 4px;
     padding: 4px;
     color: black;
     display: flex;
-
+    font-size: 20px;
 }

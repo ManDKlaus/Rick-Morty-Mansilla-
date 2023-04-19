@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Nav from "./components/Nav.jsx";
 import Login from './components/Login.jsx' ;
-import Locations from "./components/Locations.jsx"
+import Home from "./components/Home.jsx";
+import Locations from "./components/Locations.jsx";
 import About from './components/About.jsx' ;
 import Episodes from './components/Episodes.jsx' ;
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
@@ -51,6 +52,10 @@ export default function App() {
             />
             <Route 
                path="/home"
+               element={<Home />}                              
+            />
+            <Route 
+               path="/about"
                element={<About />}                              
             />
             <Route 
